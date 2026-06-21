@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Tab Graveyard",
+  "version": "1.0.0",
+  "description": "Never lose a closed tab again. Search and restore your tab history instantly.",
+
+  "permissions": ["tabs", "storage", "sidePanel"],
+
+  "host_permissions": ["https://*/*", "http://*/*"],
+
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+
+  "side_panel": {
+    "default_path": "index.html"
+  },
+
+  "action": {
+    "default_title": "Open Tab Graveyard"
+  }
+}
