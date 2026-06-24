@@ -13,7 +13,7 @@ function isRestorableUrl(url) {
   }
 }
 
-function normalizeTab(tab) {
+function normalizeTab(tab, description) {
   if (!tab || !isRestorableUrl(tab.url)) return null
 
   return {
@@ -21,6 +21,30 @@ function normalizeTab(tab) {
     url: tab.url,
     domain: new URL(tab.url).hostname.replace(/^www\./, ''),
     favIconUrl: tab.favIconUrl || '',
+    description: description || '',
+  }
+}
+
+// Reads the page's meta description (used to give AI search real meaning to
+// embed, instead of just a short title). Best-effort: fails silently on pages
+// where scripts can't run (chrome://, web store, PDF viewers, etc.).
+async function getPageDescription(tabId) {
+  try {
+    const [injection] = await chrome.scripting.executeScript({
+      target: { tabId },
+      func: () => {
+        const pick = (sel) => document.querySelector(sel)?.getAttribute('content') || ''
+        return (
+          pick('meta[name="description"]') ||
+          pick('meta[property="og:description"]') ||
+          pick('meta[name="twitter:description"]') ||
+          ''
+        )
+      },
+    })
+    return (injection?.result || '').trim().slice(0, 300)
+  } catch {
+    return ''
   }
 }
 
@@ -33,9 +57,12 @@ async function setOpenTabs(openTabs) {
   await chrome.storage.session.set({ [OPEN_TABS_KEY]: openTabs })
 }
 
-async function rememberTab(tab) {
-  const tabInfo = normalizeTab(tab)
+async function rememberTab(tab, description) {
   const openTabs = await getOpenTabs()
+  // Preserve a description we captured earlier if this update didn't bring a new
+  // one (e.g. a title-only change shouldn't wipe the page description).
+  const existing = openTabs[tab.id]
+  const tabInfo = normalizeTab(tab, description || existing?.description)
 
   if (tabInfo) {
     openTabs[tab.id] = tabInfo
@@ -90,9 +117,14 @@ chrome.tabs.onCreated.addListener((tab) => {
   rememberTab(tab)
 })
 
-chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
+chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
   if (changeInfo.url || changeInfo.title || changeInfo.favIconUrl || tab.status === 'complete') {
-    rememberTab(tab)
+    // Once the page has finished loading, grab its meta description for AI search.
+    const description =
+      tab.status === 'complete' && isRestorableUrl(tab.url)
+        ? await getPageDescription(tabId)
+        : ''
+    rememberTab(tab, description)
   }
 })
 

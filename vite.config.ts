@@ -25,6 +25,11 @@ export default defineConfig({
       targets: [
         { src: 'manifest.json', dest: '.' },
         { src: 'background.js', dest: '.' },
+        // Bundle the ONNX Runtime WASM backend locally. Manifest V3 forbids
+        // loading remote scripts, so transformers.js cannot fetch these from a
+        // CDN — they must ship inside the extension and be pointed at via
+        // env.backends.onnx.wasm.wasmPaths (see src/lib/embeddings.ts).
+        { src: 'node_modules/onnxruntime-web/dist/ort-wasm-*.{wasm,mjs}', dest: 'ort', rename: { stripBase: true } },
       ]
     })
   ],

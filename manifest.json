@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "Never lose a closed tab again. Search and restore your tab history instantly.",
 
-  "permissions": ["tabs", "storage", "sidePanel"],
+  "permissions": ["tabs", "storage", "sidePanel", "scripting"],
 
   "host_permissions": ["https://*/*", "http://*/*"],
 
@@ -15,6 +15,10 @@
 
   "side_panel": {
     "default_path": "index.html"
+  },
+
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'"
   },
 
   "action": {
