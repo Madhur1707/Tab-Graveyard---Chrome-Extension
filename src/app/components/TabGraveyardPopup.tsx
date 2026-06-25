@@ -111,11 +111,7 @@ function HighlightText({ text, query }: { text: string; query: string }) {
 function TopBar({ onOpenSettings }: { onOpenSettings: () => void }) {
   const [hovered, setHovered] = useState(false);
   return (
-    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '14px 16px 8px' }}>
-      <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-        <Ghost size={15} color={C.accent} strokeWidth={1.75} />
-        <span style={{ color: C.white, fontSize: 13, fontWeight: 600, letterSpacing: '-0.02em' }}>Tab Graveyard</span>
-      </div>
+    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', padding: '8px 12px 4px' }}>
       <button
         onClick={onOpenSettings}
         onMouseEnter={() => setHovered(true)}

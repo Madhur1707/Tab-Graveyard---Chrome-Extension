@@ -39,6 +39,17 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+
+  --landing-bg: #0f0f10;
+  --landing-surface: #1a1a1f;
+  --landing-surface-hover: #202028;
+  --landing-border: #242430;
+  --landing-border-light: #2e2e3a;
+  --landing-accent: #6366f1;
+  --landing-accent-light: #818cf8;
+  --landing-muted: #6b7280;
+  --landing-white: #f1f1f3;
+  --landing-white-dim: #a1a1aa;
 }
 
 .dark {
@@ -117,6 +128,17 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+
+  --color-landing-bg: var(--landing-bg);
+  --color-landing-surface: var(--landing-surface);
+  --color-landing-surface-hover: var(--landing-surface-hover);
+  --color-landing-border: var(--landing-border);
+  --color-landing-border-light: var(--landing-border-light);
+  --color-landing-accent: var(--landing-accent);
+  --color-landing-accent-light: var(--landing-accent-light);
+  --color-landing-muted: var(--landing-muted);
+  --color-landing-white: var(--landing-white);
+  --color-landing-white-dim: var(--landing-white-dim);
 }
 
 @layer base {

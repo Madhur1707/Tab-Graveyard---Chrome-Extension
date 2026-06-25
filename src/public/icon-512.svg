@@ -1,0 +1,21 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="512" height="512" rx="112" fill="#18181b"/>
+  <rect x="40" y="40" width="432" height="432" rx="88" fill="#6366f1" opacity="0.12"/>
+  <!-- Ghost body -->
+  <path d="M256 88 C168 88 112 144 112 216 C112 248 120 272 136 296 L112 320 L112 368 L152 344 L176 368 L200 344 L224 368 L248 344 L256 348 L264 344 L288 368 L312 344 L336 368 L360 344 L400 368 L400 320 L376 296 C392 272 400 248 400 216 C400 144 344 88 256 88Z" fill="#818cf8"/>
+  <!-- Eyes -->
+  <circle cx="200" cy="216" r="28" fill="#18181b"/>
+  <circle cx="312" cy="216" r="28" fill="#18181b"/>
+  <!-- Eye glints -->
+  <circle cx="208" cy="208" r="12" fill="white" opacity="0.9"/>
+  <circle cx="320" cy="208" r="12" fill="white" opacity="0.9"/>
+  <!-- Smile -->
+  <path d="M208 272 Q256 304 304 272" stroke="#18181b" stroke-width="12" fill="none" stroke-linecap="round"/>
+  <!-- Tombstone base -->
+  <rect x="152" y="352" width="208" height="88" rx="16" fill="#3f3f46"/>
+  <!-- Tombstone pillars -->
+  <rect x="168" y="328" width="32" height="56" rx="8" fill="#52525b"/>
+  <rect x="240" y="328" width="32" height="56" rx="8" fill="#52525b"/>
+  <rect x="312" y="328" width="32" height="56" rx="8" fill="#52525b"/>
+</svg>

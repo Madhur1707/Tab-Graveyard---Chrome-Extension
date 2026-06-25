@@ -1,0 +1,24 @@
+<svg width="340" height="60" viewBox="0 0 340 60" xmlns="http://www.w3.org/2000/svg">
+  <!-- Icon background -->
+  <rect width="52" height="52" rx="12" fill="#6366f1" opacity="0.15" x="0" y="4"/>
+  <!-- Ghost body -->
+  <path d="M26 6 C16 6 10 13 10 21 C10 25 11 28 13 31 L10 34 L10 40 L15 37 L18 40 L21 37 L24 40 L26 37 L28 40 L31 37 L34 40 L37 37 L40 40 L40 34 L43 31 C45 28 46 25 46 21 C46 13 36 6 26 6Z" fill="#818cf8"/>
+  <!-- Eyes -->
+  <circle cx="20" cy="22" r="4" fill="#0f0f10"/>
+  <circle cx="32" cy="22" r="4" fill="#0f0f10"/>
+  <!-- Eye glints -->
+  <circle cx="21" cy="21" r="1.8" fill="white" opacity="0.95"/>
+  <circle cx="33" cy="21" r="1.8" fill="white" opacity="0.95"/>
+  <!-- Smile -->
+  <path d="M20 29 Q26 33 32 29" stroke="#0f0f10" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+  <!-- Tombstone base -->
+  <rect x="12" y="40" width="28" height="12" rx="2.5" fill="#3f3f46"/>
+  <!-- Tombstone pillars -->
+  <rect x="15" y="37" width="5" height="8" rx="1.5" fill="#52525b"/>
+  <rect x="24" y="37" width="5" height="8" rx="1.5" fill="#52525b"/>
+  <rect x="33" y="37" width="5" height="8" rx="1.5" fill="#52525b"/>
+  <!-- Wordmark -->
+  <text x="66" y="24" fill="white" font-family="system-ui, -apple-system, BlinkMacSystemFont, sans-serif" font-size="22" font-weight="700" letter-spacing="-0.5">Tab Graveyard</text>
+  <!-- Tagline -->
+  <text x="66" y="44" fill="#818cf8" font-family="system-ui, -apple-system, BlinkMacSystemFont, sans-serif" font-size="13" font-weight="400" letter-spacing="0.3">Never lose a tab again</text>
+</svg>
